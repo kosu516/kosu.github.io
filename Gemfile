@@ -8,7 +8,6 @@ group :jekyll_plugins do
     gem 'jekyll-archives-v2'
     gem 'jekyll-cache-bust'
     gem 'jekyll-email-protect'
-    gem 'jekyll-feed'
     gem 'jekyll-get-json'
     gem 'jekyll-imagemagick'
     gem 'jekyll-jupyter-notebook'
@@ -55,7 +54,6 @@ group :al_folio_plugins do
     gem 'al_search', '= 1.0.3'
     gem 'al_charts', '= 1.0.1'
     gem 'al_math', '= 1.0.2'
-    gem 'al_comments', '= 1.0.0'
     gem 'al_newsletter', '= 1.0.0'
 
     gem 'al_email_protect', '= 1.0.1'

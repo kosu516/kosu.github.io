@@ -1,0 +1,151 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+/* Built-in Sass modules you’ll likely use across partials */
+@use "sass:math";
+@use "sass:string";
+
+/* Configure your design tokens BEFORE loading any of your partials.
+   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
+@use "variables" with (
+  $max-content-width: {{site.max_width | default: "930px"}}
+);
+
+/* Your project partials — convert these files to `@use "variables";`
+   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
+@use "themes";
+@use "layout";
+
+// Core styles organized by usage
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+// Other specialized styles
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+// Personal site accents
+:root {
+  --global-theme-color: #a64008;
+  --global-hover-color: #a64008;
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #ffad66;
+  --global-hover-color: #ffad66;
+  --global-hover-text-color: #23160d;
+}
+
+.home-news {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+
+  li {
+    display: grid;
+    grid-template-columns: minmax(4.75rem, max-content) minmax(0, 1fr);
+    gap: 0.8rem;
+    padding-block: 0.5rem;
+  }
+
+  time {
+    color: var(--global-theme-color);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+}
+
+.projects .card-img-top {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background-color: color-mix(in srgb, var(--global-text-color) 6%, var(--global-card-bg-color));
+}
+
+.post:has(.projects, .project-hero) .post-description,
+.projects .card-text {
+  color: color-mix(in srgb, var(--global-text-color) 66%, var(--global-bg-color));
+}
+
+.project-hero {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 30rem;
+  margin-inline: auto;
+  border-radius: 0.25rem;
+}
+
+.award-title {
+  margin-block: 1rem 0.375rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.cv-with-sidebar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+.cv-section-nav {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 0.8rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  a {
+    display: block;
+    padding-block: 0.35rem;
+    color: var(--global-text-color);
+    font-weight: 600;
+    line-height: 1.4;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--global-hover-color);
+    }
+  }
+}
+
+.cv-section-content {
+  scroll-margin-top: 5rem;
+
+  .anchor {
+    scroll-margin-top: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .cv-with-sidebar {
+    grid-template-columns: minmax(9.5rem, 1fr) minmax(0, 3.4fr);
+    gap: 1.75rem;
+  }
+
+  .cv-section-nav {
+    position: sticky;
+    top: 5rem;
+    align-self: start;
+    max-height: calc(100dvh - 6rem);
+    overflow-y: auto;
+    padding-inline: 0.25rem;
+
+    ul {
+      display: block;
+    }
+  }
+}
