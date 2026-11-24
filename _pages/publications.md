@@ -8,7 +8,7 @@ nav_order: 2
 
 ## Conference presentations
 
-<div class="publications">
+<div class="publications conference-presentations">
 
 {% bibliography %}
 
@@ -16,8 +16,18 @@ nav_order: 2
 
 ## Awards
 
-{% for award in site.data.cv.cv.sections["Awards and Recognition"] %}
-<h3 class="award-title">{{ award.label | escape }}</h3>
+{% assign awards_by_year = site.data.cv.cv.sections["Awards and Recognition"] | group_by_exp: "award", "award.date | slice: 0, 4" | sort: "name" | reverse %}
 
-{{ award.details }}
-{% endfor %}
+<div class="publications">
+  {% for year in awards_by_year %}
+    <h2 class="bibliography">{{ year.name }}</h2>
+    <ol class="bibliography">
+      {% for award in year.items %}
+        <li>
+          <div class="title">{{ award.name | escape }}</div>
+          {{ award.highlights.first | markdownify }}
+        </li>
+      {% endfor %}
+    </ol>
+  {% endfor %}
+</div>

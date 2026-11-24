@@ -44,10 +44,14 @@ cv:
           - Learned electromagnetic simulation independently and introduced it to the lab to support device design.
 
     Awards and Recognition:
-      - label: MakeNTU Makerathon, Best Maker Award
-        details: May 2026. Built a hand-tracking robotic arm that mimics a Turkish ice cream vendor. Won the Best Maker Award among 44 teams and received NT$50,000 in prize money.
-      - label: RCAS Summer Internship Poster Competition, Gold Award
-        details: August 2025. Delivered a one-minute flash talk and presented a poster, earning the Gold Award among 59 teams.
+      - name: MakeNTU Makerathon, Best Maker Award
+        date: "2026-05"
+        highlights:
+          - Built a hand-tracking robotic arm that mimics a Turkish ice cream vendor. Won the Best Maker Award among 44 teams and received NT$50,000 in prize money.
+      - name: RCAS Summer Internship Poster Competition, Gold Award
+        date: "2025-08"
+        highlights:
+          - Delivered a one-minute flash talk and presented a poster, earning the Gold Award among 59 teams.
 
     Conference Presentations:
       - bullet: "**S.-X. Hsu (first author)**, “Distributed Bragg Reflector for Light-Coupling Enhancement in 2D Semiconductor,” Optics & Photonics Taiwan International Conference (OPTIC), 2025. Poster presentation and Student Paper Award finalist."
@@ -99,11 +103,3 @@ cv:
       - bullet: Electrical Engineering Lab (Automatic Control)
       - bullet: Machine Learning
       - bullet: Cornerstone EECS Design and Implementation
-
-    Additional Information:
-      - label: Languages
-        details: TBD
-      - label: Certificates
-        details: TBD
-      - label: References
-        details: TBD
