@@ -84,6 +84,9 @@ description: This is Si-Xian's CV. Check the PDF file for more details!
                     {% if entry.area %}
                       <p><em>{{ entry.area | escape }}</em></p>
                     {% endif %}
+                    {% if entry.summary %}
+                      <p><em>{{ entry.summary | escape }}</em></p>
+                    {% endif %}
                     {% if title == 'Awards and Recognition' %}
                       {{ entry.highlights.first | markdownify }}
                     {% elsif entry.highlights %}
