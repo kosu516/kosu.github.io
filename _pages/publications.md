@@ -10,7 +10,9 @@ nav_order: 2
 
 <div class="publications conference-presentations">
 
-{% bibliography %}
+{% capture presentations %}{% bibliography %}{% endcapture %}
+{% assign pose_guided_author_line = '(id="lin2025poseguided"[^>]*>[\s\S]*?<div class="author">[\s\S]*?)(\s*</div>)' %}
+{{ presentations | regex_replace: pose_guided_author_line, '\1 (equally contribution)\2' }}
 
 </div>
 
