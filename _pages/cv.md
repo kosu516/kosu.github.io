@@ -1,11 +1,11 @@
 ---
 layout: default
 permalink: /cv/
-title: CV
+title: Curriculum Vitae
 nav: true
 nav_order: 5
 cv_pdf: /assets/pdf/si-xian-hsu-cv.pdf
-description: Education, research experience, projects, and leadership.
+description: This is Si-Xian's CV. Check the PDF file for more details!
 ---
 
 <link rel="stylesheet" href="{{ '/assets/css/al-folio-cv.css' | relative_url | bust_file_cache }}">
@@ -54,39 +54,65 @@ description: Education, research experience, projects, and leadership.
       {% for section in cv.sections %}
         {% assign title = section[0] %}
         {% assign entries = section[1] %}
+        {% if title == 'Education' or title == 'Experience' %}
+          {% assign entries = entries | al_cv_sort_by_date %}
+        {% endif %}
         <section id="{{ title | slugify }}" class="card mt-3 p-3">
           <h2 class="card-title font-weight-medium">{% if title == 'Experience' %}Research Experience{% else %}{{ title }}{% endif %}</h2>
-          {% case title %}
-            {% when 'Education' %}
-              {% assign entries = entries | al_cv_sort_by_date %}
-              {% include cv/education.liquid %}
-            {% when 'Experience' %}
-              {% assign entries = entries | al_cv_sort_by_date %}
-              {% include cv/experience.liquid %}
-            {% else %}
-              <ul class="card-text font-weight-light list-group list-group-flush">
-                {% for entry in entries %}
-                  <li class="list-group-item">
-                    {% if title == 'Projects' %}
-                      {% assign project = site.projects | where: 'title', entry.name | first %}
-                      {% if project %}
-                        <a href="{{ project.url | relative_url }}">{{ entry.name | escape }}</a>
-                      {% else %}
-                        {{ entry.name | escape }}
-                      {% endif %}
-                    {% elsif title == 'Awards and Recognition' %}
-                      <strong>{{ entry.name | escape }}</strong> ·
-                      <time datetime="{{ entry.date }}">{{ entry.date | append: '-01' | date: '%b %Y' }}</time>
-                      {{ entry.highlights.first | markdownify }}
-                    {% elsif entry.bullet %}
-                      {{ entry.bullet | markdownify | remove_first: '<p>' | remove: '</p>' }}
-                    {% elsif entry.label %}
-                      <strong>{{ entry.label | escape }}</strong> · {{ entry.details | escape }}
+          <ul class="card-text font-weight-light list-group list-group-flush">
+            {% for entry in entries %}
+              {% if entry.start_date or entry.date %}
+                {% assign start = entry.start_date | default: entry.date %}
+                {% assign entry_title = entry.position | default: entry.degree | default: entry.name %}
+                {% assign organization = entry.company | default: entry.institution %}
+                <li class="list-group-item cv-dated-entry">
+                  <span class="badge font-weight-bold text-uppercase cv-date">
+                    <time datetime="{{ start }}">{{ start | append: '-01' | date: '%b %Y' }}</time>
+                    {% if entry.end_date == 'present' %}
+                      – Present
+                    {% elsif entry.end_date %}
+                      – <time datetime="{{ entry.end_date }}">{{ entry.end_date | append: '-01' | date: '%b %Y' }}</time>
                     {% endif %}
-                  </li>
-                {% endfor %}
-              </ul>
-          {% endcase %}
+                  </span>
+                  <h3 class="cv-entry-title">
+                    {% if entry.url %}<a href="{{ entry.url }}">{{ entry_title | escape }}</a>{% else %}{{ entry_title | escape }}{% endif %}
+                  </h3>
+                  <div class="cv-entry-details">
+                    {% if organization %}
+                      <p>{{ organization | escape }}{% if entry.location %}, {{ entry.location | escape }}{% endif %}</p>
+                    {% endif %}
+                    {% if entry.area %}
+                      <p><em>{{ entry.area | escape }}</em></p>
+                    {% endif %}
+                    {% if title == 'Awards and Recognition' %}
+                      {{ entry.highlights.first | markdownify }}
+                    {% elsif entry.highlights %}
+                      <ul>
+                        {% for item in entry.highlights %}
+                          <li>{{ item | markdownify | remove_first: '<p>' | remove: '</p>' }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                  </div>
+                </li>
+              {% else %}
+                <li class="list-group-item">
+                  {% if title == 'Projects' %}
+                    {% assign project = site.projects | where: 'title', entry.name | first %}
+                    {% if project %}
+                      <a href="{{ project.url | relative_url }}">{{ entry.name | escape }}</a>
+                    {% else %}
+                      {{ entry.name | escape }}
+                    {% endif %}
+                  {% elsif entry.bullet %}
+                    {{ entry.bullet | markdownify | remove_first: '<p>' | remove: '</p>' }}
+                  {% elsif entry.label %}
+                    <strong>{{ entry.label | escape }}</strong> · {{ entry.details | escape }}
+                  {% endif %}
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
         </section>
       {% endfor %}
     </article>

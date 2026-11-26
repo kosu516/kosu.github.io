@@ -8,7 +8,7 @@ cv:
   sections:
     Education:
       - institution: National Taiwan University
-        area: Electrical Engineering
+        area: Department of Electrical Engineering
         degree: Undergraduate
         start_date: 2024-09
         end_date: present
@@ -26,7 +26,7 @@ cv:
           - Accelerated iterative closest point (ICP) registration by 1.5× and introduced one-click workflow automation to an existing dental-preparation grading system.
           - Presented comparative reviews of contact-based registration methods and their assumptions, limitations, and possible adaptations to dental robotics.
 
-      - company: NTU Robot Learning Lab
+      - company: NTU Robot Learning Lab (RL Lab)
         position: Undergraduate Researcher
         url: https://nturll.xyz/about
         start_date: 2026-02
@@ -54,7 +54,7 @@ cv:
           - Delivered a one-minute flash talk and presented a poster, earning the Gold Award among 59 teams.
 
     Conference Presentations:
-      - bullet: "**S.-X. Hsu (first author)**, “Distributed Bragg Reflector for Light-Coupling Enhancement in 2D Semiconductor,” Optics & Photonics Taiwan International Conference (OPTIC), 2025. Poster presentation and Student Paper Award finalist."
+      - bullet: "**S.-X. Hsu (first author)**, “Distributed Bragg Reflector for Light-Coupling Enhancement in 2D Semiconductor,” Optics & Photonics Taiwan International Conference (OPTIC), December 2025. Poster presentation and Student Paper Award finalist."
 
     Projects:
       - name: Inverted Pendulum Control
@@ -93,10 +93,39 @@ cv:
         details: Autodesk Fusion 360, AutoCAD, 3D printing, soldering
 
     Outreach and Leadership:
-      - bullet: "**Renaissance High School, Detroit, MI** · Volunteer Chinese Teaching Assistant (January–February 2026). Planned Chinese-language classroom activities and integrated Chinese New Year traditions into cultural lessons."
-      - bullet: "**NTU Electrical Engineering Student Association** · Vice President and Director of Facilities and Events (August 2026–present). Proposed revisions to departmental credit requirements, advocated for access to shared spaces, and guided student event organizers."
-      - bullet: "**NTU Electrical Engineering Girls’ Volleyball Team** · Captain (August 2026–present) and Vice Captain (August 2025–July 2026). Led twice-weekly practices and organized training sessions during breaks and team outings."
-      - bullet: "**NTU EE LightDance Team** · Dancer Team Lead (June 2026–present). Choreographed performances and led rehearsals for the dance and theatrical segments of the March 2027 NTUEE Night."
+      - company: Renaissance High School
+        position: Volunteer Chinese Teaching Assistant
+        location: Detroit, MI
+        start_date: 2026-01
+        end_date: 2026-02
+        highlights:
+          - Planned Chinese-language classroom activities and integrated Chinese New Year traditions into cultural lessons.
+      - company: NTU Electrical Engineering Student Association
+        position: Vice President
+        start_date: 2026-08
+        end_date: present
+      - company: NTU Electrical Engineering Student Association
+        position: Director of Facilities and Events
+        start_date: 2026-08
+        end_date: present
+        highlights:
+          - Across both roles, proposed revisions to departmental credit requirements, advocated for access to shared spaces, and guided student event organizers.
+      - company: NTU Electrical Engineering Girls’ Volleyball Team
+        position: Captain
+        start_date: 2026-08
+        end_date: present
+      - company: NTU Electrical Engineering Girls’ Volleyball Team
+        position: Vice Captain
+        start_date: 2025-08
+        end_date: 2026-07
+        highlights:
+          - Across both roles, led twice-weekly practices and organized training sessions during breaks and team outings.
+      - company: NTU EE LightDance Team
+        position: Dancer Team Lead
+        start_date: 2026-06
+        end_date: present
+        highlights:
+          - Choreographed performances and led rehearsals for the dance and theatrical segments of the March 2027 NTUEE Night.
 
     Selected Coursework:
       - bullet: Robot Perception and Learning
