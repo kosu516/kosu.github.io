@@ -20,4 +20,4 @@ The pipeline estimates a skeleton for each character and aligns the skeletons be
 
 We generated test cases by applying geometric changes to skeletons and illustrations, such as rescaling one body region or applying a local swirl. We used Grad-CAM to inspect which regions affected the model’s score and compare them with the areas we deliberately distorted.
 
-[GitHub repository](https://github.com/ML-1141/pose-guided-proportional-assessment)
+[GitHub repository](https://github.com/ML-1141/pose-guided-proportional-assessment) · [Poster]({{ '/assets/pdf/pose-guided-proportional-assessment-poster.pdf' | relative_url }}) · [Paper]({{ '/assets/pdf/pose-guided-proportional-assessment-paper.pdf' | relative_url }})
